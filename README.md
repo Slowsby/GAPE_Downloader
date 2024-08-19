@@ -30,7 +30,7 @@ API_KEY=YOURAPIKEY
 ```
 
 ## Usage
-To download imagery for a specific expedition, run the script with the desired Expedition. The `EXPEDITION_NUMBER` should align with GAPE's [Database Mission ID.](https://eol.jsc.nasa.gov/FAQ/default.htm#cameraMetadata_Mission)
+To download imagery for a specific expedition, run the script with the desired expedition. The `EXPEDITION_NUMBER` should align with GAPE's [Database Mission ID.](https://eol.jsc.nasa.gov/FAQ/default.htm#cameraMetadata_Mission)
 ```bash
 npm run start -- EXPEDITION_NUMBER
 ```
