@@ -19,21 +19,25 @@ const url = `https://eol.jsc.nasa.gov/SearchPhotos/PhotosDatabaseAPI/PhotosDatab
 const batch = 20;
 
 const fetchImages = async () => {
-    let firstIndex = 0;
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log(`Length: ${data.length}`);
-    while (firstIndex < data.length) {
-        const lastIndex = Math.min(firstIndex + batch, data.length);
-        const toDownload = data.slice(firstIndex, lastIndex);
-        
-        // Waits for the completion of the promise before starting new batch
-        await Promise.all(toDownload.map(async (el) => {
-            await downloadImage(el);
-        }));
-
-        // Update the index for the next batch
-        firstIndex = lastIndex;
+    try {
+        let firstIndex = 0;
+        console.log(`Starting fetch request for ${expedition}`)
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(`Successfully fetched data for ${expedition}`);
+        while (firstIndex < data.length) {
+            const lastIndex = Math.min(firstIndex + batch, data.length);
+            const toDownload = data.slice(firstIndex, lastIndex);
+            
+            // Waits for the completion of the promise before starting new batch
+            await Promise.all(toDownload.map(async (el) => {
+                await downloadImage(el);
+            }));
+            // Update the index for the next batch
+            firstIndex = lastIndex;
+        }
+    } catch (error) {
+        console.log(`Error fetching data for ${expedition}`, error.message)
     }
 }
 
