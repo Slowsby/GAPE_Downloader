@@ -19,9 +19,3 @@ Follow these steps to set up and run the script:
   npm run start -- EXPEDITION_NUMBER
 ```
 EXPEDITION_NUMBER should follow GAPE'S [Database Mission ID](https://eol.jsc.nasa.gov/FAQ/default.htm#cameraMetadata_Mission)
-
-## Example
-
-https://github.com/user-attachments/assets/26b69643-3493-48dd-aecd-8028fe71d203
-
-
