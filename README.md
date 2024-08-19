@@ -1,4 +1,4 @@
-# GAPE_DOWNLOADER
+# GAPE_Downloader
 
 Node.js script to batch download GAPE Imagery
 
