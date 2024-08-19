@@ -8,7 +8,7 @@ Follow these steps to set up and run the script:
 
 ```bash
   # CLONE THE REPO
-  git clone 
+  git clone https://github.com/Slowsby/GAPE_Downloader
   cd GAPE_DOWNLOADER
 
   # INSTALL DEPENDENCIES
