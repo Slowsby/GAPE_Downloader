@@ -14,10 +14,7 @@ Follow these steps to set up and run the script:
   # INSTALL DEPENDENCIES
   npm i
 
-  # CREATE A .env FILE IN ROOT FOLDER
-  #/.env
-  API_KEY=YOURAPIKEY
-
+  # RENAME .env.example to .env and enter your GAPE's API key
   # RUN THE SCRIPT
   npm run start -- EXPEDITION_NUMBER
 ```
