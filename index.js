@@ -12,7 +12,6 @@ const baseForm = "https://eol.jsc.nasa.gov/DatabaseImages/";
 let args = process.argv.slice(2)
 const expedition = String(args)
 // Change expidition naming following the "Database Mission ID" : https://eol.jsc.nasa.gov/FAQ/default.htm#cameraMetadata_Mission
-//const expedition = "ISS001"
 // API DOCS : https://eol.jsc.nasa.gov/SearchPhotos/PhotosDatabaseAPI/#dtaf
 const url = `https://eol.jsc.nasa.gov/SearchPhotos/PhotosDatabaseAPI/PhotosDatabaseAPI.pl?query=images|mission|eq|${expedition}|images|directory|not%20like|*small*|images|directory|not%20like|*lowres*|images|directory|not%20like|*registered*|images|directory|not%20like|*ReefBase*|images|directory|not%20like|*custom*|images|directory|not%20like|*EO*&return=images|directory|images|filename&key=${API_KEY}`;
 //Consecutive images to download
@@ -56,7 +55,7 @@ const downloadImage = async (el) => {
         fs.mkdirSync(path.dirname(filePath), { recursive: true });
 
         const response = await axios({
-            url: `${baseForm}${el['images.directory']}/${el['images.filename']}`, // replace with the actual image URL
+            url: `${baseForm}${el['images.directory']}/${el['images.filename']}`,
             method: 'GET',
             responseType: 'stream'
         });
