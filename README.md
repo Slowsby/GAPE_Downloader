@@ -22,5 +22,6 @@ EXPEDITION_NUMBER should follow GAPE'S [Database Mission ID](https://eol.jsc.nas
 
 ## Example
 
-https://github.com/user-attachments/assets/29f7c7bf-216e-4c99-a942-24fb23fa3435
+https://github.com/user-attachments/assets/26b69643-3493-48dd-aecd-8028fe71d203
+
 
