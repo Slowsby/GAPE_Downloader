@@ -43,3 +43,7 @@ NASA generally does not maintain a copyright on their images, meaning they are t
 
 
 > NASA should be acknowledged as the source of the material. For astronaut photography of Earth accessed through this website, please state “Image courtesy of the Earth Science and Remote Sensing Unit, NASA Johnson Space Center" or "Video courtesy of the Earth Science and Remote Sensing Unit, NASA Johnson Space Center" as appropriate. We recommend that the caption or supporting materials used for any photograph published include the unique photo number (Mission-Roll-Frame), and our website (eol.jsc.nasa.gov) so that others can locate or obtain copies when needed.
+
+## Responsible Use
+
+This tool is intended to facilitate the retrieval of imagery for educational, research, and non-commercial purposes. Please use it respectfully and responsibly. 
