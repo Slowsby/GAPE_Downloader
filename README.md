@@ -1,21 +1,45 @@
-# GAPE_Downloader
+# GAPE Downloader
 
-Node.js script to batch download GAPE Imagery
+A Node.js script for batch downloading GAPE Imagery, designed to retrieve of high-quality images from GAPE's expansive database.
 
-## Getting Started
+## Prerequisites
 
-Follow these steps to set up and run the script:
+- [Node.js](https://nodejs.org/)
+- A valid [GAPE](https://eol.jsc.nasa.gov/) API key
+
+## Installation
+
+### 1. Clone the Repository
+
+Start by cloning the repository to your local machine:
 
 ```bash
-  # CLONE THE REPO
-  git clone https://github.com/Slowsby/GAPE_Downloader
-  cd GAPE_DOWNLOADER
-
-  # INSTALL DEPENDENCIES
-  npm i
-
-  # RENAME .env.example to .env and enter your GAPE's API key
-  # RUN THE SCRIPT
-  npm run start -- EXPEDITION_NUMBER
+git clone https://github.com/Slowsby/GAPE_Downloader
+cd GAPE_Downloader
 ```
-EXPEDITION_NUMBER should follow GAPE'S [Database Mission ID](https://eol.jsc.nasa.gov/FAQ/default.htm#cameraMetadata_Mission)
+### 2. Install Dependencies
+```bash
+npm install
+```
+### 3. Configure Environment Variables
+Rename the `.env.example` file to `.env` and add your GAPE API key:
+
+Edit the `.env` file to include your GAPE API key:
+```bash
+API_KEY=YOURAPIKEY
+```
+
+## Usage
+To download imagery for a specific expedition, run the script with the desired Expedition. The `EXPEDITION_NUMBER` should align with GAPE's [Database Mission ID.](https://eol.jsc.nasa.gov/FAQ/default.htm#cameraMetadata_Mission)
+```bash
+npm run start -- EXPEDITION_NUMBER
+```
+
+## ⚠️ Image Copyright and Attribution
+
+All images downloaded using this script are the property of the [Earth Science and Remote Sensing Unit, NASA Johnson Space Center ](https://eol.jsc.nasa.gov/).
+
+NASA generally does not maintain a copyright on their images, meaning they are typically free to use. However, proper attribution to the source is recommended. Please ensure to verify any specific usage requirements or restrictions on the [EOL website](https://eol.jsc.nasa.gov/FAQ/#Couoap).
+
+
+> NASA should be acknowledged as the source of the material. For astronaut photography of Earth accessed through this website, please state “Image courtesy of the Earth Science and Remote Sensing Unit, NASA Johnson Space Center" or "Video courtesy of the Earth Science and Remote Sensing Unit, NASA Johnson Space Center" as appropriate. We recommend that the caption or supporting materials used for any photograph published include the unique photo number (Mission-Roll-Frame), and our website (eol.jsc.nasa.gov) so that others can locate or obtain copies when needed.
