@@ -52,4 +52,4 @@ NASA generally does not maintain a copyright on their images, meaning they are t
 
 ## Responsible Use
 
-This tool is intended to facilitate the retrieval of imagery for educational, research, and non-commercial purposes. Please use it respectfully and responsibly. 
+This tool is only intended to facilitate the retrieval of imagery. Please use it respectfully and responsibly. 
