@@ -1,6 +1,8 @@
 # GAPE Downloader
 
-A Node.js script for batch downloading GAPE Imagery, designed to retrieve high-quality images from GAPE's expansive database.
+A Node.js script for batch downloading GAPE Imagery, designed to retrieve high-quality images from GAPE's expansive database. 
+
+It can be used, for example, to create [high-quality timelapses](https://www.youtube.com/watch?v=AtP8Yp6YdXY)
 
 ## Prerequisites
 
