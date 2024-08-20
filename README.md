@@ -35,6 +35,12 @@ To download imagery for a specific expedition, run the script with the desired e
 npm run start -- EXPEDITION_NUMBER
 ```
 
+##### Downloading a Specific Range of Images
+If you want to download a specific range of images from an expedition, use the range option. This allows you to specify the start and end points of the range. The `EXPEDITION_NUMBER` should be followed by `START_IMAGE` and `END_IMAGE`, which define the starting and ending image numbers respectively.
+
+```bash
+npm run range -- EXPEDITION_NUMBER START_IMAGE END_IMAGE
+```
 ## ⚠️ Image Copyright and Attribution
 
 All images downloaded using this script are the property of the [Earth Science and Remote Sensing Unit, NASA Johnson Space Center ](https://eol.jsc.nasa.gov/).
