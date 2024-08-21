@@ -32,7 +32,7 @@ API_KEY=YOURAPIKEY
 ```
 
 ## Usage
-To download imagery for a specific expedition, run the script with the desired expedition. The `EXPEDITION_NUMBER` should align with GAPE's [Database Mission ID.](https://eol.jsc.nasa.gov/FAQ/default.htm#cameraMetadata_Mission)
+To download imagery for a specific expedition, run the script with the desired expedition. The `EXPEDITION_NUMBER` should align with GAPE's [Database Mission ID](https://eol.jsc.nasa.gov/FAQ/default.htm#cameraMetadata_Mission).
 ```bash
 npm run start -- EXPEDITION_NUMBER
 ```
@@ -43,6 +43,12 @@ If you want to download a specific range of images from an expedition, use the r
 ```bash
 npm run range -- EXPEDITION_NUMBER START_IMAGE END_IMAGE
 ```
+---
+**Note**: This script downloads 20 images at a time by default. You can adjust this number by modifying the `batch` variable in the script:
+```js
+const batch = 20;
+```
+
 ## ⚠️ Image Copyright and Attribution
 
 All images downloaded using this script are the property of the [Earth Science and Remote Sensing Unit, NASA Johnson Space Center ](https://eol.jsc.nasa.gov/).
