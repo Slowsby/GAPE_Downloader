@@ -5,10 +5,10 @@ import axios from 'axios'
 import dotenv from 'dotenv';
 dotenv.config();
 const API_KEY = process.env.API_KEY;
-//Correct format to download images "https://eol.jsc.nasa.gov/DatabaseImages/images.directory/images.filename"
 const baseForm = "https://eol.jsc.nasa.gov/DatabaseImages/";
-//Consecutive images to download
+// Number of images downloaded at a time
 const batch = 20;
+
 // Puts CLI args in variables
 const [script, arg, expedition, startRange, endRange] = process.argv.slice(1)
 
