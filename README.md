@@ -24,7 +24,7 @@ cd GAPE_Downloader
 npm install
 ```
 ### 3. Configure Environment Variables
-Rename the `.env.example` file to `.env` and add your GAPE API key:
+Rename the `.env.example` file to `.env`.
 
 Edit the `.env` file to include your GAPE API key:
 ```bash
