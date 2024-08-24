@@ -15,7 +15,7 @@ const [arg, expedition, startRange, endRange] = process.argv.slice(2);
 const fetchImages = async (url) => {
   try {
     let firstIndex = 0;
-    console.log(`Starting fetch request`);
+    console.log(`Fetching data (Can take a few secs for large databases)`);
     const response = await fetch(url);
     const data = await response.json();
     if (
@@ -23,7 +23,9 @@ const fetchImages = async (url) => {
     ) {
       throw new Error("No records found that match the specified criteria");
     }
-    console.log(`Successfully fetched data.\nStaring download...`);
+    console.log(
+      `Data fetched\nQueried: ${data.length} images\nStaring download...`,
+    );
     while (firstIndex < data.length) {
       const lastIndex = Math.min(firstIndex + batch, data.length);
       const toDownload = data.slice(firstIndex, lastIndex);
@@ -45,17 +47,15 @@ const fetchImages = async (url) => {
 
 // Changes the fetch URL based on the command used.
 if (arg === "start") {
-  console.log(
-    `The argument provided will trigger the download of the entire database of images of the ${expedition} expedition.`,
-  );
+  console.log(`This will download the entire ${expedition} database`);
   // API DOCS : https://eol.jsc.nasa.gov/SearchPhotos/PhotosDatabaseAPI/#dtaf
-  const url = `https://eol.jsc.nasa.gov/SearchPhotos/PhotosDatabaseAPI/PhotosDatabaseAPI.pl?query=images|mission|eq|${expedition}|images|directory|not%20like|*small*|images|directory|not%20like|*lowres*|images|directory|not%20like|*custom*|images|directory|like|*ESC*|images|directory|like|*large*&return=images|directory|images|filename&key=${API_KEY}`;
+  const url = `https://eol.jsc.nasa.gov/SearchPhotos/PhotosDatabaseAPI/PhotosDatabaseAPI.pl?query=images|mission|eq|${expedition}|images|directory|not%20like|*small*|images|directory|not%20like|*lowres*|images|directory|not%20like|*custom*|images|directory|not%20like|*EO*|images|directory|not%20like|*city*|images|directory|not%20like|*EFS*&return=images|directory|images|filename&key=${API_KEY}`;
   fetchImages(url);
 } else if (arg === "range") {
   console.log(
-    `The argument provided will trigger the download of images numbered from ${parseInt(startRange)} to ${parseInt(endRange)} of the ${expedition} expedition.`,
+    `This will download all available images numbered from ${expedition}-E-${parseInt(startRange)} to ${expedition}-E-${parseInt(endRange)}`,
   );
-  const url = `https://eol.jsc.nasa.gov/SearchPhotos/PhotosDatabaseAPI/PhotosDatabaseAPI.pl?query=images|mission|eq|${expedition}|images|frame|ge|${parseInt(startRange)}|images|frame|le|${parseInt(endRange)}|images|directory|not%20like|*small*|images|directory|not%20like|*lowres*|images|directory|not%20like|*custom*|images|directory|like|*ESC*|images|directory|like|*large*&return=images|directory|images|filename&key=${API_KEY}`;
+  const url = `https://eol.jsc.nasa.gov/SearchPhotos/PhotosDatabaseAPI/PhotosDatabaseAPI.pl?query=images|mission|eq|${expedition}|images|frame|ge|${parseInt(startRange)}|images|frame|le|${parseInt(endRange)}|images|directory|not%20like|*small*|images|directory|not%20like|*lowres*|images|directory|not%20like|*custom*|images|directory|not%20like|*EO*|images|directory|not%20like|*city*|images|directory|not%20like|*EFS*&return=images|directory|images|filename&key=${API_KEY}`;
   fetchImages(url);
 } else {
   console.log("Invalid argument.");
