@@ -49,13 +49,13 @@ const fetchImages = async (url) => {
 if (arg === "start") {
   console.log(`This will download the entire ${expedition} database`);
   // API DOCS : https://eol.jsc.nasa.gov/SearchPhotos/PhotosDatabaseAPI/#dtaf
-  const url = `https://eol.jsc.nasa.gov/SearchPhotos/PhotosDatabaseAPI/PhotosDatabaseAPI.pl?query=images|mission|eq|${expedition}|images|directory|not%20like|*small*|images|directory|not%20like|*lowres*|images|directory|not%20like|*custom*|images|directory|not%20like|*EO*|images|directory|not%20like|*city*|images|directory|not%20like|*EFS*&return=images|directory|images|filename&key=${API_KEY}`;
+  const url = `https://eol.jsc.nasa.gov/SearchPhotos/PhotosDatabaseAPI/PhotosDatabaseAPI.pl?query=images|mission|eq|${expedition}|images|directory|not%20like|*small*|images|directory|not%20like|*lowres*|images|directory|not%20like|*custom*|images|directory|not%20like|*EO*|images|directory|not%20like|*city*|images|directory|not%20like|*EFS*|images|directory|not%20like|*debriefing*&return=images|directory|images|filename&key=${API_KEY}`;
   fetchImages(url);
 } else if (arg === "range") {
   console.log(
     `This will download all available images numbered from ${expedition}-E-${parseInt(startRange)} to ${expedition}-E-${parseInt(endRange)}`,
   );
-  const url = `https://eol.jsc.nasa.gov/SearchPhotos/PhotosDatabaseAPI/PhotosDatabaseAPI.pl?query=images|mission|eq|${expedition}|images|frame|ge|${parseInt(startRange)}|images|frame|le|${parseInt(endRange)}|images|directory|not%20like|*small*|images|directory|not%20like|*lowres*|images|directory|not%20like|*custom*|images|directory|not%20like|*EO*|images|directory|not%20like|*city*|images|directory|not%20like|*EFS*&return=images|directory|images|filename&key=${API_KEY}`;
+  const url = `https://eol.jsc.nasa.gov/SearchPhotos/PhotosDatabaseAPI/PhotosDatabaseAPI.pl?query=images|mission|eq|${expedition}|images|frame|ge|${parseInt(startRange)}|images|frame|le|${parseInt(endRange)}|images|directory|not%20like|*small*|images|directory|not%20like|*lowres*|images|directory|not%20like|*custom*|images|directory|not%20like|*EO*|images|directory|not%20like|*city*|images|directory|not%20like|*EFS*|images|directory|not%20like|*debriefing*&return=images|directory|images|filename&key=${API_KEY}`;
   fetchImages(url);
 } else {
   console.log("Invalid argument.");
