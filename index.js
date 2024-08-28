@@ -22,6 +22,8 @@ const fetchImages = async (url) => {
       data.result === "SQL found no records that match the specified criteria"
     ) {
       throw new Error("No records found that match the specified criteria");
+    } else if (data.error === "invalid number of query items") {
+      throw new Error("Invalid number of query items");
     }
     console.log(
       `Data fetched\nQueried: ${data.length} images\nStaring download...`,
@@ -45,18 +47,18 @@ const fetchImages = async (url) => {
   }
 };
 
-// Changes the fetch URL based on the command used.
+// API DOCS : https://eol.jsc.nasa.gov/SearchPhotos/PhotosDatabaseAPI/#dtaf
+const apiUrl = `https://eol.jsc.nasa.gov/SearchPhotos/PhotosDatabaseAPI/PhotosDatabaseAPI.pl?query=images|mission|eq|${expedition}|`;
+const apiFilters = `images|directory|not%20like|*small*|images|directory|not%20like|*lowres*|images|directory|not%20like|*custom*|images|directory|not%20like|*EO*|images|directory|not%20like|*city*|images|directory|not%20like|*EFS*|images|directory|not%20like|*debriefing*&return=images|directory|images|filename&key=${API_KEY}`;
+const apiRange = `images|frame|ge|${parseInt(startRange)}|images|frame|le|${parseInt(endRange)}|`;
 if (arg === "start") {
   console.log(`This will download the entire ${expedition} database`);
-  // API DOCS : https://eol.jsc.nasa.gov/SearchPhotos/PhotosDatabaseAPI/#dtaf
-  const url = `https://eol.jsc.nasa.gov/SearchPhotos/PhotosDatabaseAPI/PhotosDatabaseAPI.pl?query=images|mission|eq|${expedition}|images|directory|not%20like|*small*|images|directory|not%20like|*lowres*|images|directory|not%20like|*custom*|images|directory|not%20like|*EO*|images|directory|not%20like|*city*|images|directory|not%20like|*EFS*|images|directory|not%20like|*debriefing*&return=images|directory|images|filename&key=${API_KEY}`;
-  fetchImages(url);
+  fetchImages(`${apiUrl}${apiFilters}`);
 } else if (arg === "range") {
   console.log(
     `This will download all available images numbered from ${expedition}-E-${parseInt(startRange)} to ${expedition}-E-${parseInt(endRange)}`,
   );
-  const url = `https://eol.jsc.nasa.gov/SearchPhotos/PhotosDatabaseAPI/PhotosDatabaseAPI.pl?query=images|mission|eq|${expedition}|images|frame|ge|${parseInt(startRange)}|images|frame|le|${parseInt(endRange)}|images|directory|not%20like|*small*|images|directory|not%20like|*lowres*|images|directory|not%20like|*custom*|images|directory|not%20like|*EO*|images|directory|not%20like|*city*|images|directory|not%20like|*EFS*|images|directory|not%20like|*debriefing*&return=images|directory|images|filename&key=${API_KEY}`;
-  fetchImages(url);
+  fetchImages(`${apiUrl}${apiRange}${apiFilters}`);
 } else {
   console.log("Invalid argument.");
 }
