@@ -51,6 +51,16 @@ If you want to download a specific range of images from an expedition, use the r
 ```bash
 npm run range -- EXPEDITION_NUMBER START_IMAGE END_IMAGE
 ```
+### Example Usage
+```bash
+npm run start -- ISS052
+```
+This will attempt to download all available images for the specified mission.
+
+```bash
+npm run range -- ISS052 570 600
+```
+This will attempt to download only the images within the specified range.
 
 ---
 
