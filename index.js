@@ -18,7 +18,10 @@ const fetchImages = async (url) => {
     console.log(`Fetching data (Can take a few secs for large databases)`);
     const response = await fetch(url);
     const data = await response.json();
-    if (
+    if (data.error === "invalid or no key specified") {
+      throw new Error(": Invalid or no API key specified");
+    }
+    else if (
       data.result === "SQL found no records that match the specified criteria"
     ) {
       throw new Error("No records found that match the specified criteria");
